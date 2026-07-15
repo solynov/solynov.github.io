@@ -17,7 +17,9 @@ a{color:inherit;text-decoration:none}.container{width:min(1120px,calc(100% - 40p
 .plan{display:flex;flex-direction:column;height:100%}
 .plan .list{flex:1}
 .plan .btn{width:100%;text-align:center;box-sizing:border-box}
+.plan .btn + .btn{margin-top:.55rem}
 .plan.featured{border:2px solid var(--blue);position:relative}
+@media(max-width:850px){.menu{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:12px;font-size:14px}.nav{height:auto;flex-wrap:wrap;padding:12px 0}}
 .price{display:flex;align-items:baseline;gap:.4rem;margin:.6rem 0 1rem}
 .price strong{font-size:2rem;color:var(--navy);line-height:1}
 .parcours-step{display:flex;gap:.9rem;align-items:flex-start}
