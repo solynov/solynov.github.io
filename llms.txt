@@ -6,7 +6,7 @@
 Contact : contact@solynov.com — TVA non applicable (art. 293 B du CGI).
 
 ## Produit
-- Deux éditions : Starter (1 poste — 49 €, achat unique) et Bridge (1 serveur de génération automatique + 3 postes — 249 €, achat unique).
+- Deux éditions : Starter (1 poste — 49 €, achat unique) et Bridge (génération automatique depuis vos exports ERP, 3 postes — 249 €, achat unique).
 - Modèle tarifaire : achat unique ; 1 an de mises à jour de conformité inclus, puis renouvellement facultatif des mises à jour à 29 €/an. Le logiciel reste fonctionnel même sans renouvellement.
 - Fonctionnement 100 % local : les données de facturation ne transitent pas par des serveurs tiers.
 - Import d'une facture PDF, complétion des données via un tableur simple, génération du Factur-X, vérification de conformité intégrée.
@@ -23,4 +23,5 @@ Contact : contact@solynov.com — TVA non applicable (art. 293 B du CGI).
 - [Produit](https://solynov.com/produit.html) : fonctionnement et fonctionnalités.
 - [Démo](https://solynov.com/demo.html) : parcours de création d'une facture.
 - [Aide & FAQ](https://solynov.com/aide.html) : questions fréquentes (essai, licences, conformité, calendrier, prix).
+- [Que faire de vos Factur-X ?](https://solynov.com/transmettre-facturx.html) : après la génération, comment transmettre via une plateforme agréée (PDP).
 - [Télécharger & acheter](https://solynov.com/telechargement.html) : éditions, tarifs et essai.
