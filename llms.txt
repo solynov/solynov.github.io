@@ -2,14 +2,14 @@
 
 > SOLYNOV Factur-X est un logiciel Windows qui permet aux TPE, artisans, commerçants et indépendants de produire des factures électroniques au format Factur-X (conforme à la norme européenne EN 16931 / BR-FR), simplement et localement, sans ERP ni compétence informatique.
 
-Éditeur : Alex Chenuaud (entreprise individuelle « SOLYNOV »), SIREN 107156242, R.C.S. Dijon, France.
+Éditeur : SOLYNOV (entreprise individuelle), SIREN 107156242, R.C.S. Dijon, France.
 Contact : contact@solynov.com — TVA non applicable (art. 293 B du CGI).
 
 ## Produit
 - Deux éditions : Starter (1 poste — 49 €, achat unique) et Bridge (génération automatique depuis vos exports ERP, 3 postes — 249 €, achat unique).
 - Modèle tarifaire : achat unique ; 1 an de mises à jour de conformité inclus, puis renouvellement facultatif des mises à jour à 29 €/an. Le logiciel reste fonctionnel même sans renouvellement.
 - Fonctionnement 100 % local : les données de facturation ne transitent pas par des serveurs tiers.
-- Import d'une facture PDF, complétion des données via un tableur simple, génération du Factur-X, vérification de conformité intégrée.
+- Vous renseignez vos données (classeur modèle en Starter, exports ERP en Bridge), SOLYNOV génère le Factur-X et en vérifie la conformité.
 - Essai gratuit 30 jours, version complète, sans carte bancaire. Licence signée envoyée par email dès le paiement.
 - SOLYNOV génère des fichiers Factur-X conformes ; il n'est pas une plateforme de transmission (PDP). La transmission se fait via une PDP ou le dispositif public.
 - Plateforme : Windows 10 et 11 (versions macOS et Linux envisagées).
