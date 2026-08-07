@@ -19,6 +19,7 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', 'AW-18339834557');
+    gtag('config', 'G-ZHP7FEGFK0');
 
     trackPurchaseIfMerci();
   }
