@@ -19,7 +19,9 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', 'AW-18339834557');
+
     trackPurchaseIfMerci();
+    trackDownloads();
   }
 
   // Page de confirmation /merci : enregistre la conversion "Achat" avec le
@@ -37,6 +39,29 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
       'value': value,
       'currency': 'EUR',
       'transaction_id': txn
+    });
+  }
+
+  // Suivi des telechargements (indicateur avance, avant l'achat).
+  // Declenche un evenement au clic sur les boutons de telechargement .exe,
+  // par edition (Starter / Bridge). Envoye vers Google (GA4/Ads) via la balise.
+  // Ne se declenche que si le consentement a ete donne (gtag charge).
+  function trackDownloads() {
+    if (typeof window.gtag !== 'function') return;
+    var items = [
+      { sel: 'a[href*="SolynovFX-Starter-Setup.exe"]', ev: 'download_starter', edition: 'starter', value: 49 },
+      { sel: 'a[href*="SolynovFX-Bridge-Setup.exe"]',  ev: 'download_bridge',  edition: 'bridge',  value: 249 }
+    ];
+    items.forEach(function (it) {
+      document.querySelectorAll(it.sel).forEach(function (a) {
+        if (a.__solynovDlTracked) return;
+        a.__solynovDlTracked = true;
+        a.addEventListener('click', function () {
+          try {
+            window.gtag('event', it.ev, { edition: it.edition, value: it.value, currency: 'EUR' });
+          } catch (e) {}
+        });
+      });
     });
   }
 
