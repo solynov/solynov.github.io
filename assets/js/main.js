@@ -46,11 +46,13 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
   // Declenche un evenement au clic sur les boutons de telechargement .exe,
   // par edition (Starter / Bridge). Envoye vers Google (GA4/Ads) via la balise.
   // Ne se declenche que si le consentement a ete donne (gtag charge).
+  // En plus de l'evenement download_*, on envoie la conversion Ads dediee
+  // (actions SECONDAIRES "Telechargement Starter/Bridge", observation seule).
   function trackDownloads() {
     if (typeof window.gtag !== 'function') return;
     var items = [
-      { sel: 'a[href*="SolynovFX-Starter-Setup.exe"]', ev: 'download_starter', edition: 'starter', value: 49 },
-      { sel: 'a[href*="SolynovFX-Bridge-Setup.exe"]',  ev: 'download_bridge',  edition: 'bridge',  value: 249 }
+      { sel: 'a[href*="SolynovFX-Starter-Setup.exe"]', ev: 'download_starter', edition: 'starter', value: 49, sendTo: 'AW-18339834557/yoEsCL__2OscEL3VjqlE' },
+      { sel: 'a[href*="SolynovFX-Bridge-Setup.exe"]', ev: 'download_bridge', edition: 'bridge', value: 249, sendTo: 'AW-18339834557/sQ2tCPz-2escEL3VjqlE' }
     ];
     items.forEach(function (it) {
       document.querySelectorAll(it.sel).forEach(function (a) {
@@ -59,6 +61,7 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
         a.addEventListener('click', function () {
           try {
             window.gtag('event', it.ev, { edition: it.edition, value: it.value, currency: 'EUR' });
+            window.gtag('event', 'conversion', { send_to: it.sendTo, value: it.value, currency: 'EUR' });
           } catch (e) {}
         });
       });
