@@ -1,0 +1,37 @@
+# Fins de ligne : decidees ICI, une fois pour toutes.
+#
+# Meme regle que Solynov_Starter, Solynov_Bridge et le serveur de licences.
+# Constate le 21/09/2026 sur ce depot : 25 des 28 fichiers suivis etaient
+# en CRLF sur le disque alors que le depot les stocke en LF. Git, qui
+# compare octet par octet, annoncait 25 fichiers modifies -- README, toutes
+# les pages, la feuille de style, le script, le sitemap -- pour un contenu
+# RIGOUREUSEMENT identique.
+#
+# Ce n'est pas qu'une question de proprete : 25 fichiers de faux
+# changements, c'est de quoi noyer une vraie modification du site le jour
+# ou on en fait une, et ne pas la voir.
+#
+# Avec ce fichier, peu importe par ou un fichier arrive -- site web de
+# GitHub, GitHub Desktop, editeur : git normalise a l'entree et la question
+# ne se pose plus.
+
+# Par defaut : texte, stocke et restitue en LF.
+* text=auto eol=lf
+
+# Un site n'a pas de .bat : rien n'a besoin de CRLF ici.
+
+# Binaires : jamais touches, sous aucune configuration. Le 06/09/2026, sur
+# un autre depot, git sous Windows avait converti un PDF en CRLF a la
+# recuperation : 5 568 octets devenus 5 667. Il s'ouvrait encore, mais ce
+# n'etait plus le meme fichier.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.pdf   binary
+*.webp  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.zip   binary
