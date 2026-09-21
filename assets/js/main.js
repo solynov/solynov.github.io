@@ -31,7 +31,7 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
     if (!/(^|\/)merci(\.html)?$/.test(path)) return;
     var q = new URLSearchParams(location.search);
     var edition = (q.get('edition') || '').toLowerCase();
-    var value = edition === 'bridge' ? 249 : (edition === 'starter' ? 49 : 1);
+    var value = edition === 'bridge' ? 590 : (edition === 'starter' ? 189 : 1);
     var txn = q.get('session_id') || q.get('txn') || '';
     if (typeof window.gtag !== 'function') return;
     window.gtag('event', 'conversion', {
@@ -51,8 +51,8 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
   function trackDownloads() {
     if (typeof window.gtag !== 'function') return;
     var items = [
-      { sel: 'a[href*="SolynovFX-Starter-Setup.exe"]', ev: 'download_starter', edition: 'starter', value: 49, sendTo: 'AW-18339834557/yoEsCL__2OscEL3VjqlE' },
-      { sel: 'a[href*="SolynovFX-Bridge-Setup.exe"]', ev: 'download_bridge', edition: 'bridge', value: 249, sendTo: 'AW-18339834557/sQ2tCPz-2escEL3VjqlE' }
+      { sel: 'a[href*="SolynovFX-Starter-Setup.exe"]', ev: 'download_starter', edition: 'starter', value: 189, sendTo: 'AW-18339834557/yoEsCL__2OscEL3VjqlE' },
+      { sel: 'a[href*="SolynovFX-Bridge-Setup.exe"]', ev: 'download_bridge', edition: 'bridge', value: 590, sendTo: 'AW-18339834557/sQ2tCPz-2escEL3VjqlE' }
     ];
     items.forEach(function (it) {
       document.querySelectorAll(it.sel).forEach(function (a) {
