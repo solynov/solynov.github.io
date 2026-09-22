@@ -26,4 +26,9 @@ Contact : contact@solynov.com — TVA non applicable (art. 293 B du CGI).
 - [Démo](https://solynov.com/demo.html) : parcours de création d'une facture.
 - [Aide & FAQ](https://solynov.com/aide.html) : questions fréquentes (essai, licences, conformité, calendrier, prix).
 - [Que faire de vos Factur-X ?](https://solynov.com/transmettre-facturx.html) : après la génération, comment transmettre via une plateforme agréée (PDP).
+- [Bridge, système par système](https://solynov.com/factur-x-depuis-votre-logiciel-de-gestion.html) : où sont les exports dans chaque outil, et ce que Bridge attend (tables factures/lignes, clients, articles, ma société).
+- [Factur-X depuis Excel](https://solynov.com/factur-x-depuis-excel.html) : le classeur comme source (.xlsx, .xlsm, CSV), une feuille par table, intitulés en première ligne.
+- [Factur-X depuis Access](https://solynov.com/factur-x-depuis-access.html) : une requête par table, export Excel, macro DoCmd.TransferSpreadsheet pour automatiser.
+- [Factur-X depuis Sage 50 (ex-Ciel)](https://solynov.com/factur-x-sage-50.html) : Listes › clic droit › Exporter vers Excel ; états paramétrables pour les lignes de pièces ; tâches automatiques.
+- [Factur-X depuis EBP Gestion Commerciale](https://solynov.com/factur-x-ebp-gestion-commerciale.html) : bouton Exporter des listes, exports paramétrables (TXT/CSV point-virgule), ligne de commande SDK.
 - [Télécharger & acheter](https://solynov.com/telechargement.html) : éditions, tarifs et essai.
