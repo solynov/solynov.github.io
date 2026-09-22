@@ -31,4 +31,5 @@ Contact : contact@solynov.com — TVA non applicable (art. 293 B du CGI).
 - [Factur-X depuis Access](https://solynov.com/factur-x-depuis-access.html) : une requête par table, export Excel, macro DoCmd.TransferSpreadsheet pour automatiser.
 - [Factur-X depuis Sage 50 (ex-Ciel)](https://solynov.com/factur-x-sage-50.html) : Listes › clic droit › Exporter vers Excel ; états paramétrables pour les lignes de pièces ; tâches automatiques.
 - [Factur-X depuis EBP Gestion Commerciale](https://solynov.com/factur-x-ebp-gestion-commerciale.html) : bouton Exporter des listes, exports paramétrables (TXT/CSV point-virgule), ligne de commande SDK.
+- [Modèles Excel gratuits](https://solynov.com/modeles-excel-facture-electronique.html) : cinq classeurs (Factures, Clients, Articles, Ma société, classeur unique) aux colonnes lues par Bridge, téléchargeables sans inscription (assets/modeles/).
 - [Télécharger & acheter](https://solynov.com/telechargement.html) : éditions, tarifs et essai.
