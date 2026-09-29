@@ -81,7 +81,7 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
     b.setAttribute('role', 'dialog');
     b.setAttribute('aria-label', 'Consentement aux cookies');
     b.innerHTML =
-      '<p>Nous utilisons des cookies de <strong>mesure d’audience</strong> et de <strong>publicité</strong> (dont Google) pour améliorer le site et accompagner le lancement. Ils ne sont déposés qu’avec votre accord. Vos données de facturation, elles, restent sur votre poste. <a href="mentions-legales.html">En savoir plus</a>.</p>' +
+      '<p>Cookies de <strong>mesure d’audience</strong> et de <strong>publicité</strong> (dont Google), déposés seulement avec votre accord. <a href="mentions-legales.html">En savoir plus</a></p>' +
       '<div class="rgpd-actions"><button type="button" class="btn secondary rgpd-no">Refuser</button><button type="button" class="btn rgpd-yes">Accepter</button></div>';
     document.body.appendChild(b);
     function close() { if (b.parentNode) b.parentNode.removeChild(b); }
