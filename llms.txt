@@ -8,7 +8,7 @@ Contact : contact@solynov.com — TVA non applicable (art. 293 B du CGI).
 ## Produit
 - Deux éditions : Bridge (lit les exports Excel/CSV du logiciel de gestion, du classeur Excel ou de la base Access existants et produit les Factur-X sans rien modifier ; jusqu'à 3 postes — 590 €, achat unique) et Starter (logiciel de facturation complet pour un poste : devis, factures, acomptes, avoirs, règlements — 189 €, achat unique).
 - Positionnement : « vos factures électroniques, sans changer de logiciel ». Bridge s'adresse aux entreprises qui gardent leur outil existant ; Starter à celles qui n'en ont pas.
-- Modèle tarifaire : achat unique ; 1 an de mises à jour de conformité inclus, puis renouvellement facultatif des mises à jour à 29 €/an. Le logiciel reste fonctionnel même sans renouvellement.
+- Modèle tarifaire : achat unique, sans abonnement ; mises à jour comprises pendant 5 ans à compter de l'achat. Le logiciel reste fonctionnel ensuite.
 - Fonctionnement 100 % local : les données de facturation ne transitent pas par des serveurs tiers.
 - Bridge : vous exportez factures, clients et articles en Excel ou CSV dans un dossier ; Bridge reconnaît les tables, vous confirmez, il génère et contrôle les Factur-X (à la demande ou automatiquement). Starter : saisie directe dans le logiciel. Les données manquantes ou incohérentes sont signalées, jamais devinées ni corrigées.
 - Essai gratuit 30 jours, version complète, sans carte bancaire. Licence signée envoyée par email dès le paiement.
