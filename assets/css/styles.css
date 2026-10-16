@@ -92,8 +92,7 @@ h3{margin:0 0 6px;font-size:17px;line-height:1.35;letter-spacing:-.01em;font-wei
 .hero{padding:56px 0 52px;background:radial-gradient(900px 380px at 88% -8%,rgba(37,99,235,.07),transparent 70%),#fff;border-bottom:1px solid var(--border)}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 18px}
-/* Les arguments principaux, détachés en gras avec les mots clés en bleu
-   (choix d'Alex, 29/09) */
+/* Les arguments principaux, détachés en gras avec les mots clés en bleu */
 .args{margin:4px 0 0;font-size:clamp(18px,1.55vw,21px);line-height:1.35;font-weight:650;color:var(--navy);letter-spacing:-.012em}
 .args span{display:block}
 .args span+span{margin-top:.2em}
@@ -262,7 +261,7 @@ h3{margin:0 0 6px;font-size:17px;line-height:1.35;letter-spacing:-.01em;font-wei
 @media(max-width:600px){
   .tb{font-size:12.5px}
   .tb th,.tb td{padding:6px;overflow-wrap:anywhere;hyphens:auto}
-  .tb td:first-child{white-space:normal}
+  .tb td:first-child{white-space:normal;overflow-wrap:normal;hyphens:manual;min-width:6.2em}
 }
 
 /* ---------- Pages produit : tuiles « système par système », comparatif ---------- */

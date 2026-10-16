@@ -1,30 +1,31 @@
 # SOLYNOV
 
-> SOLYNOV Factur-X est un logiciel Windows qui permet aux TPE, artisans, commerçants et indépendants de produire des factures électroniques au format Factur-X (conforme à la norme européenne EN 16931 / BR-FR), simplement et localement, sans ERP ni compétence informatique.
+> SOLYNOV Factur-X est un logiciel Windows qui permet aux TPE, artisans, commerçants et indépendants de produire des factures électroniques au format Factur-X (conforme à la norme européenne EN 16931 / BR-FR), localement et sans abonnement : en gardant leur logiciel de gestion (Bridge), ou avec un logiciel de facturation simple en achat unique qui tient aussi leurs achats (Starter).
 
 Éditeur : SOLYNOV (entreprise individuelle), SIREN 107156242, R.C.S. Dijon, France.
 Contact : contact@solynov.com — TVA non applicable (art. 293 B du CGI).
 
 ## Produit
-- Deux éditions : Bridge (lit les exports Excel/CSV du logiciel de gestion, du classeur Excel ou de la base Access existants et produit les Factur-X sans rien modifier ; jusqu'à 3 postes — 590 €, achat unique) et Starter (logiciel de facturation complet pour un poste : devis, factures, acomptes, avoirs, règlements — 189 €, achat unique).
-- Positionnement : « vos factures électroniques, sans changer de logiciel ». Bridge s'adresse aux entreprises qui gardent leur outil existant ; Starter à celles qui n'en ont pas.
-- Modèle tarifaire : achat unique, sans abonnement ; mises à jour comprises pendant 5 ans à compter de l'achat. Le logiciel reste fonctionnel ensuite.
-- Fonctionnement 100 % local : les données de facturation ne transitent pas par des serveurs tiers.
+- Deux éditions : Bridge (lit les exports Excel/CSV du logiciel de gestion, du classeur Excel ou de la base Access existants et produit les Factur-X sans rien modifier ; jusqu'à 3 postes — gratuit jusqu'à 15 factures par mois, version complète 590 €, achat unique) et Starter (logiciel de facturation simple pour un poste : devis, factures, acomptes, avoirs gratuits et sans limite, les factures reçues des fournisseurs — Factur-X, CII ou UBL — rangées sur le poste, le suivi des paiements clients et fournisseurs, les livres des recettes et des achats, la déclaration Urssaf rappelée, l'e-reporting calculé et rappelé (à partir de septembre 2027) et la copie de sécurité automatique vers le dossier choisi, gratuits aussi ; relances d'impayés préparées, factures récurrentes, e-reporting transmis à Super PDP, trésorerie, et, pour qui facture la TVA et vend à des particuliers, l'enregistrement des encaissements avec l'attestation d'éditeur, dans la version complète — 189 €, achat unique).
+- Positionnement : « vos factures électroniques, sur votre PC, sans abonnement », et libre de changer de plateforme agréée : les factures restent sur le poste et se déposent sur n'importe quelle plateforme. Starter complet coûte 189 € une fois, à peu près le prix d'une année d'abonnement à un logiciel de facturation en ligne. Bridge s'adresse aux entreprises qui gardent leur outil existant ; Starter à celles qui n'en ont pas : « vos ventes et vos achats sur votre PC, achat unique, pas d'abonnement ».
+- Modèle tarifaire : version gratuite sans limite de durée (Starter : devis et factures sans plafond ; Bridge : jusqu'à 15 factures par mois). Version complète en achat unique, acquise dans toutes les mises à jour. Mises à jour gratuites pour tous ; rien ne se renouvelle : SOLYNOV ne facture pas l'envoi direct à la plateforme agréée (facultatif), dans toutes les versions ; la plateforme applique ses propres tarifs.
+- Fonctionnement 100 % local : aucune donnée n'est transmise à SOLYNOV, hormis celles nécessaires à l'identification du détenteur de la licence et un signal anonyme de comptage des installations (édition, version, gratuite ou complète, sans aucun identifiant) ; les données de facturation ne partent que vers la plateforme agréée de l'utilisateur, directement, sans intermédiaire, et seulement avec son consentement exprès.
 - Bridge : vous exportez factures, clients et articles en Excel ou CSV dans un dossier ; Bridge reconnaît les tables, vous confirmez, il génère et contrôle les Factur-X (à la demande ou automatiquement). Starter : saisie directe dans le logiciel. Les données manquantes ou incohérentes sont signalées, jamais devinées ni corrigées.
-- Essai gratuit 30 jours, version complète, sans carte bancaire. Licence signée envoyée par email dès le paiement.
-- SOLYNOV génère des fichiers Factur-X conformes ; il n'est pas une plateforme de transmission (PDP). La transmission se fait via une PDP ou le dispositif public.
-- Plateforme : Windows 10 et 11 (versions macOS et Linux envisagées).
+- Pas d'essai à durée limitée : une version gratuite, sans carte bancaire. Licence signée envoyée par email dès le paiement.
+- SOLYNOV génère des fichiers Factur-X conformes ; il n'est pas une plateforme de transmission (PDP). La transmission se fait via une plateforme agréée (PDP) choisie par l'utilisateur ; le plus courant est d'y déposer les Factur-X soi-même, en envoi groupé. En option, dans toutes les versions (Starter comme Bridge), le logiciel les envoie directement à Super PDP, l'une des plateformes agréées les moins chères, où l'utilisateur ouvre un compte à son nom ; SOLYNOV ne facture rien pour cet envoi ; la plateforme applique ses propres tarifs : 0,01 € HT par facture envoyée depuis un logiciel, 10 € HT par an au minimum, 2 € HT pour la vérification d'identité (tarifs publics relevés le 9 octobre 2026). Starter peut aussi y relever les factures reçues.
+- Plateforme : Windows 10 et 11 (versions macOS puis Linux en cours de développement).
 
 ## Contexte réglementaire (réforme française de la facturation électronique)
 - 1er septembre 2026 : toutes les entreprises doivent pouvoir RECEVOIR des factures électroniques ; les grandes entreprises et ETI doivent aussi les ÉMETTRE.
-- 1er septembre 2027 : les PME, TPE et micro-entreprises doivent pouvoir ÉMETTRE leurs factures électroniques.
+- 1er septembre 2027 : les PME, TPE et micro-entreprises doivent pouvoir ÉMETTRE leurs factures électroniques, et transmettre par leur plateforme l'e-reporting de leurs ventes aux particuliers et de leurs encaissements (franchise en base comprise : tous les deux mois en franchise, chaque mois ou par décade aux autres régimes).
 
 ## Pages
 - [Accueil](https://solynov.com/) : présentation générale.
 - [Bridge](https://solynov.com/bridge.html) : brancher Bridge sur son logiciel de gestion, Excel, Access, Sage/EBP/Ciel/Cegid ou un ERP sur mesure ; ce que Bridge attend comme exports.
-- [Starter](https://solynov.com/produit.html) : l'édition Starter — logiciel de facturation complet pour un poste (devis, factures, acomptes, avoirs, règlements) qui produit les Factur-X.
+- [Starter](https://solynov.com/produit.html) : l'édition Starter — logiciel de facturation simple pour un poste, en achat unique : devis, factures, acomptes, avoirs en Factur-X, factures fournisseurs rangées sur le poste, suivi des paiements, déclaration Urssaf rappelée ; relances et factures récurrentes en version complète.
+- [Logiciel de facturation gratuit](https://solynov.com/logiciel-facturation-gratuit.html) : la version gratuite de Starter — devis, factures, acomptes, avoirs, proformas et Factur-X conformes, factures fournisseurs rangées, sans limite de durée ni de nombre, avec ou sans TVA (onze régimes), sans compte en ligne, plateforme agréée au choix ; comparaison avec les conditions habituelles des offres gratuites en ligne.
 - [Démo](https://solynov.com/demo.html) : parcours de création d'une facture.
-- [Aide & FAQ](https://solynov.com/aide.html) : questions fréquentes (essai, licences, conformité, calendrier, prix).
+- [Aide & FAQ](https://solynov.com/aide.html) : questions fréquentes (version gratuite, licences, conformité, calendrier, prix).
 - [Que faire de vos Factur-X ?](https://solynov.com/transmettre-facturx.html) : après la génération, comment transmettre via une plateforme agréée (PDP).
 - [Bridge, système par système](https://solynov.com/factur-x-depuis-votre-logiciel-de-gestion.html) : où sont les exports dans chaque outil, et ce que Bridge attend (tables factures/lignes, clients, articles, ma société).
 - [Factur-X depuis Excel](https://solynov.com/factur-x-depuis-excel.html) : le classeur comme source (.xlsx, .xlsm, CSV), une feuille par table, intitulés en première ligne.
@@ -32,4 +33,4 @@ Contact : contact@solynov.com — TVA non applicable (art. 293 B du CGI).
 - [Factur-X depuis Sage 50 (ex-Ciel)](https://solynov.com/factur-x-sage-50.html) : Listes › clic droit › Exporter vers Excel ; états paramétrables pour les lignes de pièces ; tâches automatiques.
 - [Factur-X depuis EBP Gestion Commerciale](https://solynov.com/factur-x-ebp-gestion-commerciale.html) : bouton Exporter des listes, exports paramétrables (TXT/CSV point-virgule), ligne de commande SDK.
 - [Modèles Excel gratuits](https://solynov.com/modeles-excel-facture-electronique.html) : cinq classeurs (Factures, Clients, Articles, Ma société, classeur unique) aux colonnes lues par Bridge, téléchargeables sans inscription (assets/modeles/).
-- [Télécharger & acheter](https://solynov.com/telechargement.html) : éditions, tarifs et essai.
+- [Télécharger & acheter](https://solynov.com/telechargement.html) : éditions, version gratuite et tarifs.

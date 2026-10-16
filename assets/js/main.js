@@ -47,12 +47,14 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
   // par edition (Starter / Bridge). Envoye vers Google (GA4/Ads) via la balise.
   // Ne se declenche que si le consentement a ete donne (gtag charge).
   // En plus de l'evenement download_*, on envoie la conversion Ads dediee
-  // (actions SECONDAIRES "Telechargement Starter/Bridge", observation seule).
+  // ("Telechargement Starter/Bridge", actions PRINCIPALES depuis le 08/10/2026 :
+  // campagnes du lancement 2.23). Valeur = valeur attendue d'un telechargement
+  // (5 EUR Starter, 20 EUR Bridge), pas le prix de la version complete.
   function trackDownloads() {
     if (typeof window.gtag !== 'function') return;
     var items = [
-      { sel: 'a[href*="SolynovFX-Starter-Setup.exe"]', ev: 'download_starter', edition: 'starter', value: 189, sendTo: 'AW-18339834557/yoEsCL__2OscEL3VjqlE' },
-      { sel: 'a[href*="SolynovFX-Bridge-Setup.exe"]', ev: 'download_bridge', edition: 'bridge', value: 590, sendTo: 'AW-18339834557/sQ2tCPz-2escEL3VjqlE' }
+      { sel: 'a[href*="SolynovFX-Starter-Setup.exe"]', ev: 'download_starter', edition: 'starter', value: 5, sendTo: 'AW-18339834557/yoEsCL__2OscEL3VjqlE' },
+      { sel: 'a[href*="SolynovFX-Bridge-Setup.exe"]', ev: 'download_bridge', edition: 'bridge', value: 20, sendTo: 'AW-18339834557/sQ2tCPz-2escEL3VjqlE' }
     ];
     items.forEach(function (it) {
       document.querySelectorAll(it.sel).forEach(function (a) {
