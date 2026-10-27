@@ -1,5 +1,101 @@
 document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 
+/* --- Compteur de clics sans cookie (27/10/2026) -----------------------------
+ *
+ * Au clic sur un bouton « Telecharger » (.exe) ou « Acheter » (Stripe), le
+ * navigateur envoie au serveur de Solynov le bouton, l'edition, la page et la
+ * provenance de la visite. Ni cookie, ni stockage, ni identifiant : rien
+ * n'est lu ni ecrit sur l'appareil du visiteur, et le serveur ne garde que
+ * des compteurs par jour (voir /veille).
+ *
+ * Independant du bandeau : c'est la mesure qui reste quand Google Ads ne
+ * voit rien (visiteur qui refuse les cookies) et quand Cloudflare compte des
+ * robots (ceux des messageries ouvrent les liens des mails, mais ne cliquent
+ * pas sur les boutons).
+ *
+ * Provenance, calculee au clic, sans rien garder :
+ *   annonce     identifiant de clic publicitaire dans l'adresse (gclid...)
+ *   mail        utm_medium=email dans l'adresse, ou messagerie en ligne
+ *   moteur      Google, Bing, Qwant, DuckDuckGo, Ecosia...
+ *   interne     venu d'une autre page du site
+ *   autre_site  lien depuis un autre site
+ *   direct      aucun site d'origine (mail sans etiquette, favori, adresse
+ *               tapee)
+ *
+ * Seul le site en ligne compte : une page ouverte depuis le poste (fichier
+ * local) n'envoie rien, un navigateur automatise non plus. Un nouveau lien
+ * de paiement Stripe doit etre ajoute a ACHATS, sinon ses clics ne sont pas
+ * comptes.
+ * -------------------------------------------------------------------------- */
+(function () {
+  if (!/(^|\.)solynov\.com$/i.test(location.hostname)) return;
+  if (navigator.webdriver) return;
+
+  var URL_CLIC = 'https://solynov-webhook.onrender.com/clic';
+  var ACHATS = {
+    '28E4gBfKd8qT1C41utaVa04': 'starter', // 189 EUR
+    '14A6oJcy1ePhgwY5KJaVa05': 'bridge'   // 590 EUR
+  };
+  var MOTEURS = /(^|\.)(google\.[a-z]{2,3}(\.[a-z]{2})?|bing\.com|qwant\.com|duckduckgo\.com|ecosia\.org|search\.yahoo\.com|yandex\.[a-z]{2,3}|search\.brave\.com|startpage\.com|lilo\.org)$/;
+  var MESSAGERIES = /^((web)?mail\d*|messagerie|zimbra)\.|^outlook\.(live|office|office365)\.com$|(^|\.)mail\.yahoo\.com$/;
+  var envoyes = {}; // un envoi par bouton et par page vue (double-clic)
+
+  function bouton(href) {
+    var m;
+    if (/SolynovFX-Starter-Setup\.exe/i.test(href)) return ['telecharger', 'starter'];
+    if (/SolynovFX-Bridge-Setup\.exe/i.test(href)) return ['telecharger', 'bridge'];
+    m = /buy\.stripe\.com\/([A-Za-z0-9]+)/.exec(href);
+    if (m && ACHATS[m[1]]) return ['acheter', ACHATS[m[1]]];
+    return null;
+  }
+
+  function hote(adresse) {
+    try { return new URL(adresse).hostname.toLowerCase().replace(/^www\./, ''); }
+    catch (e) { return ''; }
+  }
+
+  function provenance() {
+    var q = location.search || '';
+    if (/[?&](gclid|gbraid|wbraid|msclkid)=/i.test(q)) return 'annonce';
+    if (/[?&]utm_medium=(cpc|ppc|paid|paid_search)(&|$)/i.test(q)) return 'annonce';
+    if (/[?&]utm_medium=(e-?mail|courriel|mail)(&|$)/i.test(q)) return 'mail';
+    if (!document.referrer) return 'direct';
+    var h = hote(document.referrer);
+    if (!h) return 'autre_site';
+    if (h === location.hostname.toLowerCase().replace(/^www\./, '')) return 'interne';
+    if (MESSAGERIES.test(h)) return 'mail';
+    if (MOTEURS.test(h)) return 'moteur';
+    return 'autre_site';
+  }
+
+  function envoyer(b) {
+    var cle = b[0] + '/' + b[1];
+    if (envoyes[cle]) return;
+    envoyes[cle] = true;
+    var corps = JSON.stringify({ bouton: b[0], edition: b[1], page: location.pathname, provenance: provenance() });
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon(URL_CLIC, corps)) return;
+    } catch (e) {}
+    try {
+      fetch(URL_CLIC, { method: 'POST', body: corps, keepalive: true, mode: 'no-cors', credentials: 'omit' });
+    } catch (e) {}
+  }
+
+  function surClic(e) {
+    try {
+      if (e.type === 'auxclick' && e.button !== 1) return; // clic molette seulement
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var b = bouton(a.getAttribute('href') || '');
+      if (b) envoyer(b);
+    } catch (err) {}
+  }
+
+  // Phase de capture : le compteur passe meme si un autre script arrete le clic.
+  document.addEventListener('click', surClic, true);
+  document.addEventListener('auxclick', surClic, true);
+})();
+
 /* --- Consentement cookies et mesure (Google Consent Mode v2) -----------------
  *
  * Avant le 27/10/2026, la balise Google n'etait chargee QUE si le visiteur
@@ -7,20 +103,22 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
  * l'ignorait et cliquait directement sur le bouton de telechargement, n'etait
  * jamais compte. Google Ads voyait 1 telechargement la ou GitHub en comptait 8.
  *
- * Desormais : la balise est chargee avec TOUS les consentements sur « denied ».
- * Dans cet etat elle n'ecrit ni ne lit aucun cookie et n'envoie que des signaux
- * anonymes, a partir desquels Google modelise les conversions manquantes.
- * Si le visiteur accepte, on passe a « granted » et la mesure devient complete.
- *
- * MODE_AVANCE = true  : balise chargee tout de suite, consentements refuses
- *                       par defaut (conversions modelisees -- recommande).
- * MODE_AVANCE = false : rien n'est charge avant un « Accepter » explicite,
- *                       comme avant le 27/10/2026 (aucune modelisation).
+ * MODE_AVANCE = true  : la balise est chargee tout de suite, avec TOUS les
+ *                       consentements sur « denied » : aucun cookie, seulement
+ *                       des signaux anonymes. Google n'en tire des conversions
+ *                       modelisees qu'au-dela de 700 clics publicitaires sur
+ *                       7 jours (par pays et domaine).
+ * MODE_AVANCE = false : rien n'est charge avant un « Accepter » explicite.
+ *                       Retenu le 27/10/2026 : sous le seuil des 700 clics,
+ *                       Google Ads compte les memes conversions qu'en mode
+ *                       avance (celles des visiteurs qui acceptent), sans
+ *                       charger la balise avant tout choix (lecture stricte
+ *                       de la CNIL).
  * -------------------------------------------------------------------------- */
 (function () {
   var KEY = 'solynov_consent'; // 'granted' | 'denied'
   var ID = 'AW-18339834557';
-  var MODE_AVANCE = true;
+  var MODE_AVANCE = false;
 
   var CONVERSION_ACHAT = 'AW-18339834557/Zo8JCKu5jNkcEL3VjqlE';
   var TELECHARGEMENTS = [
@@ -87,9 +185,9 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
 
   // Suivi des telechargements (indicateur avance, avant l'achat).
   // Un ecouteur est pose sur chaque bouton menant a un installeur .exe,
-  // par edition. Les ecouteurs sont poses meme sans consentement : en mode
-  // refuse, l'evenement part sans cookie ni identifiant et alimente la
-  // modelisation. Valeur = valeur attendue d'un telechargement (5 EUR
+  // par edition, des que la balise est chargee : tout de suite en mode
+  // avance (l'evenement part alors sans cookie ni identifiant), apres
+  // « Accepter » sinon. Valeur = valeur attendue d'un telechargement (5 EUR
   // Starter, 20 EUR Bridge), pas le prix de la version complete.
   function trackDownloads() {
     TELECHARGEMENTS.forEach(function (it) {
@@ -116,9 +214,9 @@ document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date
     return;
   }
 
-  // Pas encore de choix : la balise part quand meme en mode refuse, et le
-  // bandeau est propose. Le visiteur qui l'ignore est donc mesure
-  // anonymement ; celui qui accepte l'est nominativement.
+  // Pas encore de choix : le bandeau est propose. En mode avance, la balise
+  // part quand meme en mode refuse (visiteur mesure anonymement) ; sinon,
+  // rien n'est charge avant « Accepter ».
   if (MODE_AVANCE) chargerBalise();
 
   function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
